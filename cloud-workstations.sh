@@ -7,7 +7,9 @@ local_port=8910
 project_id="vwgitc-gcpf-workstation-p-0001"
 
 cw-start() {
+  # Save current gcloud configuration
   current_gcloud_config=$(gcloud config configurations list --filter="IS_ACTIVE=true" --format="value(name)")
+  # Activate the "prod" configuration
   gcloud config configurations activate "prod"
 
   gcloud workstations start-tcp-tunnel "$name" "$port" \
@@ -16,12 +18,14 @@ cw-start() {
     --config=$cluster_config --region="$region" \
     --local-host-port="$local_port" \
     --project="$project_id"
-
+  # Restore the previous gcloud configuration
   gcloud config configurations activate "$current_gcloud_config"
 }
 
 cw-stop() {
+  # Save current gcloud configuration
   current_gcloud_config=$(gcloud config configurations list --filter="IS_ACTIVE=true" --format="value(name)")
+  # Activate the "prod" configuration
   gcloud config configurations activate "prod"
   
   gcloud workstations stop "$name" \
@@ -29,5 +33,7 @@ cw-stop() {
     --config="$cluster_config" \
     --region="$region" \
     --project="$project_id"
+
+  # Restore the previous gcloud configuration
   gcloud config configurations activate "$current_gcloud_config"
 }
