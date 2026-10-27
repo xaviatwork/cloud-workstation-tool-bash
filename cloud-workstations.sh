@@ -1,10 +1,5 @@
 #!/usr/bin/env bash
-name="workstation-xavi"
-cluster_config="default-config"
-cluster="gcpf-cw-cluster"
-region="europe-west3"
-local_port=8910
-project_id="vwgitc-gcpf-workstation-p-0001"
+source $HOME/.config/cloud-workstation/cw.prod.bash
 
 cw-start() {
   # Save current gcloud configuration
