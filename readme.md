@@ -7,11 +7,11 @@ This script defines two functions:
 
 ## Configuration
 
-The configuration for the script is stored in a configuration file under the `$HOME` directory of the user.
+The configuration for the script is stored in a configuration file under the `$HOME` directory of the user, in the `$HOME/.config/cloud-workstation` folder, but it can be placed anywhere you want (as long as you update the file path in the script).
 
-The configuration definies the parameters for the specific Cloud Workstation cluster and configuration.
+The configuration defines the parameters for the specific Cloud Workstation`s cluster and configuration.
 
-This is an empty Cloud Workstation Tool configuration file:
+You can use the following empty Cloud Workstation Tool configuration file for reference:
 
 ```bash
 name=""
